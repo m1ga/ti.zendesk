@@ -1,0 +1,5 @@
+repositories {    maven {        url "https://zendesk.jfrog.io/artifactory/repo"    }}
+
+dependencies {
+	implementation "zendesk.messaging:messaging-android:2.4.0"
+}
