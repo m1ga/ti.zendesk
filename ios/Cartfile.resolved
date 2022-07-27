@@ -1,0 +1,7 @@
+github "zendesk/commonui_sdk_ios" "6.1.4"
+github "zendesk/core_sdk_ios" "2.7.0"
+github "zendesk/messaging_sdk_ios" "3.8.5"
+github "zendesk/messagingapi_sdk_ios" "3.8.5"
+github "zendesk/sdkconfigurations_sdk_ios" "1.1.11"
+github "zendesk/support_providers_sdk_ios" "5.5.0"
+github "zendesk/support_sdk_ios" "5.5.0"

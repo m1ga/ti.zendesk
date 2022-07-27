@@ -34,7 +34,7 @@ public class TiZendeskModule extends KrollModule {
 
     // Methods
     @Kroll.method
-    public void init(String key) {
+    public void initialize(String key) {
         Zendesk.initialize(TiApplication.getAppCurrentActivity(),
                 key,
                 zendesk -> fireEvent("ready", new KrollDict()),

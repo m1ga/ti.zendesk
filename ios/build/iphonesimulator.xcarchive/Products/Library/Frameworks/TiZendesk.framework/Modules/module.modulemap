@@ -1,0 +1,11 @@
+framework module TiZendesk {
+  umbrella header "TiZendesk.h"
+
+  export *
+  module * { export * }
+}
+
+module TiZendesk.Swift {
+    header "TiZendesk-Swift.h"
+    requires objc
+}
