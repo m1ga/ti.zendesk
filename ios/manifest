@@ -1,0 +1,19 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+architectures: arm64 x86_64
+mac: false
+description: ti.zendesk
+author: Hans Knöchel
+license: MIT
+copyright: Copyright (c) 2022 by Hans Knöchel
+
+# these should not be edited
+name: ti.zendesk
+moduleid: ti.zendesk
+guid: 5957ff5a-adde-45f5-aea2-2b887f97f9a9
+platform: iphone
+minsdk: 9.2.0
