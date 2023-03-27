@@ -1,3 +1,5 @@
 android/build/
 android/dist/
 
+ios/dist
+.DS_Store

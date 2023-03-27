@@ -1,39 +1,42 @@
-// This is a test harness for your module
-// You should do something interesting in this harness
-// to test out the module and to provide instructions
-// to users on how to use it by example.
+import TiZendesk from 'ti.zendesk';
 
+const isAndroid = Ti.Platform.osname === 'android';
+const ANDROID_API_KEY = '';
+const IOS_APP_KEY = '';
+const IOS_CLIENT_KEY = '';
+const IOS_URL = '';
 
-// open a single window
-var win = Ti.UI.createWindow({
-	backgroundColor:'white'
+TiZendesk.addEventListener('ready', () => {
+    console.debug('READY!');
+
+    TiZendesk.loginUser(); // optional: pass JWT string
+	TiZendesk.showMessaging();
 });
-var label = Ti.UI.createLabel();
-win.add(label);
-win.open();
 
-// TODO: write your module tests here
-var ti_zendesk = require('ti.zendesk');
-Ti.API.info("module is => " + ti_zendesk);
+TiZendesk.addEventListener('error', event => {
+	console.error('An error occurred:');
+	console.error(event.error);
+});
 
-label.text = ti_zendesk.example();
+const window = Ti.UI.createWindow({
+    backgroundColor: '#fff'
+});
 
-Ti.API.info("module exampleProp is => " + ti_zendesk.exampleProp);
-ti_zendesk.exampleProp = "This is a test value";
+const btn = Ti.UI.createButton({ title: 'Open messenger' });
+btn.addEventListener('singletap', () => openMessenger());
 
-if (Ti.Platform.name == "android") {
-	var proxy = ti_zendesk.createExample({
-		message: "Creating an example Proxy",
-		backgroundColor: "red",
-		width: 100,
-		height: 100,
-		top: 100,
-		left: 150
-	});
+window.add(btn);
+window.open();
 
-	proxy.printMessage("Hello world!");
-	proxy.message = "Hi world!.  It's me again.";
-	proxy.printMessage("Hello world!");
-	win.add(proxy);
+function openMessenger() {
+    // Android only required an API key, iOS requires an app ID, client ID and Zendesk URL
+    if (isAndroid) {
+        TiZendesk.initialize(ANDROID_API_KEY);
+    } else {
+        TiZendesk.initialize({
+            appId: IOS_APP_KEY,
+            clientId: IOS_CLIENT_KEY,
+            url: IOS_URL
+        });
+    }
 }
-
